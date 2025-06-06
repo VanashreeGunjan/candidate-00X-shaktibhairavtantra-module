@@ -1,0 +1,18 @@
+import express from 'express';
+import cors from 'cors';
+import enrolRoutes from './routes/enrol.js';
+import paymentRoutes from './routes/payment.js';
+import stripeWebhookRoutes from './routes/stripeWebhook.js';
+import checkoutRoutes from './routes/checkout.js';
+import referralRoutes from './routes/referral.js';
+import shopRoutes from './routes/shop.js';
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use('/api', enrolRoutes);
+app.use('/api', paymentRoutes);
+app.use('/api', stripeWebhookRoutes);
+app.use('/api', checkoutRoutes);
+app.use('/api', referralRoutes);
+app.use('/api', shopRoutes);
+export default app;  
